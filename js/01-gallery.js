@@ -15,7 +15,7 @@ galleryItems.forEach(({preview,original,description}) => {
    imgOne.src = preview;
    imgOne.dataset.source = original;
    imgOne.alt = description
-//    linkImg.href = ''
+   linkImg.href = original
    imgOne.classList.add('gallery__image')
    linkImg.appendChild(imgOne)
    divImg.appendChild(linkImg)
@@ -23,6 +23,7 @@ galleryItems.forEach(({preview,original,description}) => {
 })
 
 divGallery.addEventListener('click',({target}) => {
+    
     if(target.nodeName === 'IMG' ){
         console.log(target.source)
         const instance = basicLightbox.create(`
