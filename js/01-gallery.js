@@ -21,13 +21,12 @@ galleryItems.forEach(({preview,original,description}) => {
    divImg.appendChild(linkImg)
    divGallery.appendChild(divImg)
 })
-
-divGallery.addEventListener('click',({target}) => {
-    
-    if(target.nodeName === 'IMG' ){
-        console.log(target.source)
+divGallery.addEventListener('click',(event) => {
+    event.preventDefault();
+    if(event.target.nodeName === 'IMG' ){
+        console.log(event.target.source)
         const instance = basicLightbox.create(`
-    <img src='${target.dataset.source}'  width="800" height="600">
+    <img src='${event.target.dataset.source}'  width="800" height="600">
 `)
 
 instance.show()
