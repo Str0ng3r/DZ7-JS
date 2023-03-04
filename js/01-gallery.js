@@ -22,12 +22,19 @@ galleryItems.forEach(({preview,original,description}) => {
    divGallery.appendChild(divImg)
 })
 divGallery.addEventListener('click',(event) => {
+    console.log(event.type)
     event.preventDefault();
     if(event.target.nodeName === 'IMG' ){
-        console.log(event.target.source)
         const instance = basicLightbox.create(`
     <img src='${event.target.dataset.source}'  width="800" height="600">
 `)
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      instance.close();
+    }
+  });
+
 
 instance.show()
     }
