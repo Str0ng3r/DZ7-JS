@@ -22,13 +22,5 @@ galleryItems.forEach(({preview,original,description}) => {
    liImg.appendChild(linkImg)
    ulGallery.appendChild(liImg)
 })
-
-ulGallery.addEventListener('click', (event) => {
-event.preventDefault()
-
-    if (event.target.nodeName === 'IMG'){
         let lightbox = new SimpleLightbox('.gallery a', {captions: true,
             captionSelector: 'img',captionsType:'text',captionsData:'alt',captionDelay:250});
-    }
-})
-
